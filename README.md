@@ -1,2 +1,2 @@
 # Entregas
-API para sistema de entregas
+API para sistema de entregas de pedidos
