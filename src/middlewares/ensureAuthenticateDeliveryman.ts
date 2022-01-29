@@ -7,7 +7,7 @@ interface IPayload {
 
 
 
-export async function ensureAuthenticateClient(
+export async function ensureAuthenticateDeliveryman(
   request: Request,
   response: Response,
   next: NextFunction
@@ -23,14 +23,13 @@ export async function ensureAuthenticateClient(
   const token = authHeader.split(' ')[1];
 
   try {
-    const { sub } = verify(token, '748d08b393beaf71af9be034366484d7') as IPayload
+    const { sub } = verify(token, '748d08b393beaf254af9be034366484d7') as IPayload
 
 
-    request.id_client = sub;
+    request.id_deliveryman = sub;
 
     return next();
   } catch (err) {
-    console.log(err);
 
     return response.status(401).json({
       message: 'Invalid token!'

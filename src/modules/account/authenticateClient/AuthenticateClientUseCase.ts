@@ -27,7 +27,7 @@ export class AuthenticateClientUseCase {
       throw new Error('Username or password invalid!')
     }
 
-    const token = sign({username}, '748d08b393beaf71af9be034366484d7', {
+    const token = sign({ username }, '748d08b393beaf71af9be034366484d7', {
       subject: client.id,
       expiresIn: '1d'
     })
